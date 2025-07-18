@@ -60,8 +60,29 @@ except ValueError:
     print('Solo el Año')
 
 duracion_de_usuario = input('Ingresar la "Duracion" de la cancion:')
-
+try:
+    duracion_de_usuario = float(duracion_de_usuario)
+    decimal_duracion = duracion_de_usuario % 1
+    if 0.0 > decimal_duracion > 0.59:
+        print('El formato decimal ingresado es incorrecto')
+        print('Formato debe ser mayor a 00.00')
+        print('Y menor a 00.59')
+except ValueError:
+    print('Ingresa unicamente numeros en formato:')
+    print('00.00')
 calificacion_de_usuario = input('Ingresar una "Calificacion":')
+try:
+    calificacion_de_usuario = float(calificacion_de_usuario)
+    decimal_calificacion = float(calificacion_de_usuario)
+    entero_calificacion = calificacion_de_usuario - decimal_calificacion
+    if 0 > entero_calificacion > 10:
+        print('Tu calificacion puede ir de una escala de 1 a 10')
+    else:
+        if 0.0 > decimal_calificacion > 0.99:
+            print('Con decimales de 0.0 a 0.99')
+except ValueError:
+    print('La calificacion debe ser un numero entre 0 y 10')
+
 
 usuario = NuevaPieza(
     cancion_de_usuario,
@@ -76,4 +97,5 @@ usuario = NuevaPieza(
 
 al_diccionario()
 
-print(diccionario_cache)
+if __name__ == '__main__':
+    print(diccionario_cache)
