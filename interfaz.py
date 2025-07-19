@@ -1,17 +1,23 @@
 """Este codigo representa la interfaz de Usuario"""
-import streamlit as stm
+import streamlit as st
 
 # Modulos propios
 import agregar_pieza
-import al_rom
+import memoria_rom
 
 # Titulos
-stm.header('A-BaseMusic')
-stm.subheader("Tu base de datos musical")
+st.header('A-BaseMusic')
+st.subheader("Tu base de datos musical")
 
-agregar = stm.checkbox('Agregar pieza musical')
+agregar = st.checkbox('Agregar pieza musical')
+mostrar_base_completa = st.checkbox('Mostrar toda tu Musica')
+
 if agregar:
     pre_diccionario = agregar_pieza.formulario_agregar_pieza()
-    aceptar_nueva_pieza = stm.button('Aceptar para: Agregar')
+    aceptar_nueva_pieza = st.button('Aceptar para: Agregar')
     if aceptar_nueva_pieza:
-        al_rom.agregar_al_room(pre_diccionario)
+        memoria_rom.agregar_al_room(pre_diccionario)
+
+if mostrar_base_completa:
+    tabla = memoria_rom.acceso_a_rom()
+    st.dataframe(tabla)

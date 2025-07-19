@@ -1,5 +1,5 @@
 """Agregar una cancion, memoria RAM"""
-import streamlit as stm
+import streamlit as st
 
 
 class NuevaPieza():
@@ -38,25 +38,25 @@ def formulario_agregar_pieza():
         'calificacion': 0,
     }
     # Codigo de la interfaz
-    stm.subheader('Formulario: Tu nueva pieza musical.')
+    st.subheader('Formulario: Tu nueva pieza musical.')
     # Elementos de texto:
-    cancion_de_usuario = stm.text_input('Ingresar el nombre de la "Cancion":')
-    autor_de_usuario = stm.text_input('Ingresar el nombre del "Autor":')
-    album_de_usuario = stm.text_input('Ingresar el nombre del "Album":')
-    genero_de_usuario = stm.text_input('Ingresar un "Genero" para la cancion:')
+    cancion_de_usuario = st.text_input('Ingresar el nombre de la "Cancion":')
+    autor_de_usuario = st.text_input('Ingresar el nombre del "Autor":')
+    album_de_usuario = st.text_input('Ingresar el nombre del "Album":')
+    genero_de_usuario = st.text_input('Ingresar un "Genero" para la cancion:')
     # Elementos numericos:
-    fecha_de_usuario = stm.number_input(
+    fecha_de_usuario = st.number_input(
         'Ingresar el "Año de Lanzamiento" de la cancion (ej. 2023):',
         min_value=1000,
         step=1,
         format='%d')
-    duracion_de_usuario = stm.number_input(
+    duracion_de_usuario = st.number_input(
         'Ingresar la "Duracion" de la cancion (ej. 1.25):',
         min_value=0.00,
         max_value=60.00,
         step=0.01,
         format='%.2f')
-    calificacion_de_usuario = stm.number_input(
+    calificacion_de_usuario = st.number_input(
         'Ingresar una "Calificacion" (ej. 9.8):',
         min_value=0.0,
         max_value=10.0,
@@ -82,5 +82,5 @@ def formulario_agregar_pieza():
     diccionario_cache['duracion'] = usuario.duracion
     diccionario_cache['calificacion'] = usuario.usuario_calificacion
 
-    stm.dataframe(diccionario_cache)
+    st.dataframe(diccionario_cache)
     return diccionario_cache
