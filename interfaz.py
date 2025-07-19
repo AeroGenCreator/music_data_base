@@ -6,8 +6,8 @@ import agregar_pieza
 import memoria_rom
 
 # Titulos
-st.header('A-BaseMusic')
-st.subheader("Tu base de datos musical")
+st.header('Stack\'Em')
+st.subheader("Tu base de datos musical 💽")
 
 agregar = st.checkbox('Agregar pieza musical')
 mostrar_base_completa = st.checkbox('Mostrar toda tu Musica')

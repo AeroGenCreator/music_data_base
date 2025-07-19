@@ -1,0 +1,29 @@
+[
+    {
+        "cancion": "Chris",
+        "autor": "C418",
+        "album": "Volume Alpha",
+        "genero": "Nostalgia Epica",
+        "fecha": 2011,
+        "duracion": 1.28,
+        "calificacion": 10.0
+    },
+    {
+        "cancion": "Subwoofer Lullabay",
+        "autor": "C418",
+        "album": "Volume Alpha",
+        "genero": "Nostalgia Clasica",
+        "fecha": 2011,
+        "duracion": 3.29,
+        "calificacion": 9.5
+    },
+    {
+        "cancion": "Children",
+        "autor": "Robert Miles",
+        "album": "Dreamland",
+        "genero": "Electro Epica",
+        "fecha": 1996,
+        "duracion": 7.07,
+        "calificacion": 8.9
+    }
+]
