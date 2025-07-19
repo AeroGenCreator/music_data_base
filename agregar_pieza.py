@@ -83,6 +83,4 @@ def formulario_agregar_pieza():
     diccionario_cache['calificacion'] = usuario.usuario_calificacion
 
     stm.dataframe(diccionario_cache)
-
-    if __name__ == '__main__':
-        stm.write(diccionario_cache)
+    return diccionario_cache
