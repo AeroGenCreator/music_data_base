@@ -25,5 +25,14 @@
         "fecha": 1996,
         "duracion": 7.07,
         "calificacion": 8.9
+    },
+    {
+        "cancion": "One More Time",
+        "autor": "Daft Punk",
+        "album": "Discovery",
+        "genero": "Electro",
+        "fecha": 2001,
+        "duracion": "05:21",
+        "calificacion": 8.4
     }
 ]

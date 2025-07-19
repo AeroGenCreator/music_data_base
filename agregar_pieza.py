@@ -1,4 +1,7 @@
 """Agregar una cancion, memoria RAM"""
+# Librerias integradas
+import datetime as dt
+# Libreria de terceros
 import streamlit as st
 
 
@@ -11,7 +14,8 @@ class NuevaPieza():
                  autor='Desconocido',
                  album='Desconocido',
                  genero='Desconocido',
-                 fecha=-1, duracion=-1,
+                 fecha=-1,
+                 duracion=dt.timedelta(minutes=1, seconds=1),
                  usuario_calificacion=0
                  ):
 
@@ -37,25 +41,43 @@ def formulario_agregar_pieza():
         'duracion': 0,
         'calificacion': 0,
     }
+
     # Codigo de la interfaz
     st.subheader('Formulario: Tu nueva pieza musical.')
+
     # Elementos de texto:
     cancion_de_usuario = st.text_input('Ingresar el nombre de la "Cancion":')
     autor_de_usuario = st.text_input('Ingresar el nombre del "Autor":')
     album_de_usuario = st.text_input('Ingresar el nombre del "Album":')
     genero_de_usuario = st.text_input('Ingresar un "Genero" para la cancion:')
+
     # Elementos numericos:
     fecha_de_usuario = st.number_input(
         'Ingresar el "Año de Lanzamiento" de la cancion (ej. 2023):',
-        min_value=1000,
+        min_value=0000,
         step=1,
         format='%d')
-    duracion_de_usuario = st.number_input(
-        'Ingresar la "Duracion" de la cancion (ej. 1.25):',
-        min_value=0.00,
-        max_value=60.00,
-        step=0.01,
-        format='%.2f')
+    col1, col2 = st.columns(2)
+    with col1:
+        minutos_de_usuario = st.number_input(
+            'Ingresa los minutos de la cancion',
+            min_value=0,
+            max_value=59,
+            step=1,
+            format='%d',
+            key='registro_de_minutos'
+        )
+    with col2:
+        segundos_de_usuario = st.number_input(
+            'Ingresa los segundos de la cancion',
+            min_value=0,
+            max_value=59,
+            step=1,
+            format='%d',
+            key='registro_de_segundos'
+        )
+    duracion_timedelta = dt.timedelta(
+        minutes=minutos_de_usuario, seconds=segundos_de_usuario)
     calificacion_de_usuario = st.number_input(
         'Ingresar una "Calificacion" (ej. 9.8):',
         min_value=0.0,
@@ -69,7 +91,7 @@ def formulario_agregar_pieza():
         album_de_usuario,
         genero_de_usuario,
         fecha_de_usuario,
-        duracion_de_usuario,
+        duracion_timedelta,
         calificacion_de_usuario
     )
 
@@ -79,7 +101,7 @@ def formulario_agregar_pieza():
     diccionario_cache['album'] = usuario.album
     diccionario_cache['genero'] = usuario.genero
     diccionario_cache['fecha'] = usuario.fecha
-    diccionario_cache['duracion'] = usuario.duracion
+    diccionario_cache['duracion'] = str(usuario.duracion)[2:]
     diccionario_cache['calificacion'] = usuario.usuario_calificacion
 
     st.dataframe(diccionario_cache)
