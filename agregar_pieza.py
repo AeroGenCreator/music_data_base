@@ -44,6 +44,7 @@ def formulario_agregar_pieza():
 
     # Codigo de la interfaz
     st.subheader('Formulario: Tu nueva pieza musical.')
+    st.subheader('💽')
 
     # Elementos de texto:
     cancion_de_usuario = st.text_input('Ingresar el nombre de la "Cancion":')

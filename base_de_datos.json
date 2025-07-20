@@ -7,5 +7,32 @@
         "fecha": 2001,
         "duracion": "05:25",
         "calificacion": 8.5
+    },
+    {
+        "cancion": "Chris",
+        "autor": "C418",
+        "album": "Volume Alpha",
+        "genero": "Nostalgia Epica",
+        "fecha": 2011,
+        "duracion": "01:28",
+        "calificacion": 10.0
+    },
+    {
+        "cancion": "Children",
+        "autor": "Robert Miles",
+        "album": "Dreamland",
+        "genero": "Electronica",
+        "fecha": 1996,
+        "duracion": "07:07",
+        "calificacion": 9.2
+    },
+    {
+        "cancion": "Coming Back To Life",
+        "autor": "Pink Floyd",
+        "album": "The Division Bell",
+        "genero": "Energia",
+        "fecha": 1994,
+        "duracion": "06:20",
+        "calificacion": 9.0
     }
 ]

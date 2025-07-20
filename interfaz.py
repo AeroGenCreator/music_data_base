@@ -6,8 +6,8 @@ import agregar_pieza
 import memoria_rom
 
 # Titulos
-st.header('Stack\'Em')
-st.subheader("Tu base de datos musical 💽")
+st.header('Stack\'M')
+st.subheader("Tu base de datos musical")
 
 # interacciones
 agregar = st.checkbox('Agregar pieza musical 📀')
@@ -21,9 +21,13 @@ if agregar:
     if aceptar_nueva_pieza:
         memoria_rom.agregar_al_room(pre_diccionario)
 if mostrar_base_completa:
+    st.subheader('Base de Datos Musical ')
+    st.subheader('🗃️')
     tabla = memoria_rom.acceso_a_rom()
     st.dataframe(tabla)
 if casilla_formatear:
+    st.subheader('En este menu podras eliminar toda tu informacion')
+    st.subheader('⚠️')
     formateo = st.button('"Click para aceptar formateo"')
     if formateo:
         memoria_rom.reset_memoria_rom()
