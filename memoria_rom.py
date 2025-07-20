@@ -9,6 +9,18 @@ import pandas as pd
 FILE_PATH = 'base_de_datos.json'
 
 
+def reset_memoria_rom():
+    """Este bloque formatea la base de datos y agrega una
+    lista vacia en json"""
+    if os.path.exists(FILE_PATH) and os.path.getsize(FILE_PATH) > 0:
+        try:
+            with open(FILE_PATH, 'w', encoding='utf-8') as new_file:
+                data = []
+                json.dump(data, new_file)
+        except json.JSONDecodeError:
+            st.write('Error al formatear la lista')
+
+
 def agregar_al_room(diccionario: dict):
     """Aqui agrego a la base de datos permanente"""
     lista_cache = []
@@ -58,3 +70,8 @@ def acceso_a_rom():
         data_json = json.load(file)
         df = pd.DataFrame(data=data_json)
         return df
+
+
+def borrar_pieza_del_rom():
+    """Esta funcion pretende localizar una cancion
+    y borrarla de la memoria principal:"""
