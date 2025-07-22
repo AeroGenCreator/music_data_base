@@ -8,7 +8,7 @@ import memoria_rom
 # Titulos
 st.header('Stack\'M')
 st.subheader("Tu base de datos musical")
-st.write('Desde Linux')
+st.write('Powered by Linux Mint')
 
 # interacciones
 agregar = st.checkbox('Agregar pieza musical 📀')
