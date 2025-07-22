@@ -12,6 +12,7 @@ st.write('Powered by Linux Mint')
 
 # interacciones
 agregar = st.checkbox('Agregar pieza musical 📀')
+buscar_pieza = st.checkbox('Buscar en la Base de Datos')
 mostrar_base_completa = st.checkbox('Mostrar toda tu Musica 🗄️')
 casilla_formatear = st.checkbox('Formatear "Base de Datos" ⚠️')
 
@@ -21,6 +22,8 @@ if agregar:
     aceptar_nueva_pieza = st.button('Aceptar para: Agregar')
     if aceptar_nueva_pieza:
         memoria_rom.agregar_al_room(pre_diccionario)
+if buscar_pieza:
+    st.write('En construccion')
 if mostrar_base_completa:
     st.subheader('Base de Datos Musical ')
     st.subheader('🗃️')
