@@ -4,17 +4,31 @@ import streamlit as st
 # Modulos propios
 import agregar_pieza
 import memoria_rom
+import buscar_pieza
 
 # Titulos
 st.header('Stack\'M')
 st.subheader("Tu base de datos musical")
 st.write('Powered by Linux Mint')
 
-# interacciones
+# Interacciones
 agregar = st.checkbox('Agregar pieza musical 📀')
-buscar_pieza = st.checkbox('Buscar en la Base de Datos')
+
+busqueda = st.checkbox('Buscar en la Base de Datos 🔎')
+if busqueda:
+    por_cancion = st.checkbox('BUSQUEDA POR TITULO')
+    if por_cancion:
+        buscar_pieza.buscar_cancion()
+    por_artista = st.checkbox('BUSQUEDA POR ARTISTA')
+    if por_artista:
+        buscar_pieza.buscar_autor()
+    por_genero = st.checkbox('BUSQUEDA POR GENERO')
+    if por_genero:
+        buscar_pieza.buscar_genero()
+    por_tiempo = st.checkbox('BUSQUEDA POR AÑO')
+    if por_tiempo:
+        buscar_pieza.buscar_epoca()
 mostrar_base_completa = st.checkbox('Mostrar toda tu Musica 🗄️')
-casilla_formatear = st.checkbox('Formatear "Base de Datos" ⚠️')
 
 # Ejecuciones de codigo
 if agregar:
@@ -22,13 +36,15 @@ if agregar:
     aceptar_nueva_pieza = st.button('Aceptar para: Agregar')
     if aceptar_nueva_pieza:
         memoria_rom.agregar_al_room(pre_diccionario)
-if buscar_pieza:
-    st.write('En construccion')
+
 if mostrar_base_completa:
     st.subheader('Base de Datos Musical ')
     st.subheader('🗃️')
     tabla = memoria_rom.acceso_a_rom()
     st.dataframe(tabla)
+
+# Formateo, todo este codigo maneja el borrado de disco
+casilla_formatear = st.checkbox('Formatear "Base de Datos" ⚠️')
 if casilla_formatear:
     st.subheader('En este menu podras eliminar toda tu informacion')
     st.subheader('⚠️')
