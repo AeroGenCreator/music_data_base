@@ -14,7 +14,7 @@ df = memoria_rom.acceso_a_rom()
 def buscar_cancion():
     """Interfaz y logica de busqueda"""
     user_cancion = st.text_input('Nombre de Cancion').title().strip()
-    confirmar_cancion = st.button('Buscar')
+    confirmar_cancion = st.button('Buscar', key='cancion')
     if confirmar_cancion:
         try:
             df_cancion = df[df['cancion'] == user_cancion]
@@ -25,7 +25,7 @@ def buscar_cancion():
 def buscar_autor():
     """Interfaz y logica de busqueda"""
     user_artista = st.text_input('Nombre de Artista').title().strip()
-    confirmar_artista = st.button('Buscar')
+    confirmar_artista = st.button('Buscar', key='autor')
     if confirmar_artista:
         try:
             df_artista = df[df['autor'] == user_artista]
@@ -36,7 +36,7 @@ def buscar_autor():
 def buscar_genero():
     """Interfaz y logica de busqueda"""
     user_genero = st.text_input('Genero').title().strip()
-    confirmar_genero = st.button('Buscar')
+    confirmar_genero = st.button('Buscar', key='genero')
     if confirmar_genero:
         try:
             df_genero = df[df['genero'] == user_genero]
@@ -47,7 +47,7 @@ def buscar_genero():
 def buscar_epoca():
     """Interfaz y logica de busqueda"""
     user_tiempo = st.number_input('Año',format='%d', step=1)
-    confirmar_tiempo = st.button('Buscar')
+    confirmar_tiempo = st.button('Buscar', key='año')
     if confirmar_tiempo:
         try:
             df_tiempo = df[df['fecha'] == user_tiempo]
